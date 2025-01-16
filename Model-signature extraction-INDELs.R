@@ -1,5 +1,3 @@
-# The mutational matrix is saved as indels_count
-
 # Pseudocount, because fit_to_signatures gives error otherwise
 indel <- indels_count+0.001 
 
