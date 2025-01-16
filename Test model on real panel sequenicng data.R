@@ -7,10 +7,10 @@ cos_sim_msk_id8 <- cos_sim_matrix(msk505_indel_mut_matrix, as.matrix(cosmic_sign
 
 # Likelihood sbs and indel
 msk505_sbs_likelihood <- calculate_likelihood_and_posterior(S_t_matrix = msk505_sbs_mut_matrix, D_i = D_i_sbs, P_D_i = P_D_i_sbs)
-colnames(msk505_sbs_likelihood$likelihoods) <- colnames(msk505_sbs_mut_matrix)
+colnames(msk505_sbs_likelihood$posteriors) <- colnames(msk505_sbs_mut_matrix)
 
 msk505_indel_likelihood <- calculate_likelihood_and_posterior(S_t_matrix = msk505_indel_mut_matrix, D_i = D_i_indel, P_D_i = P_D_i_indel)
-colnames(msk505_indel_likelihood$likelihoods) <- colnames(msk505_indel_mut_matrix)
+colnames(msk505_indel_likelihood$posteriors) <- colnames(msk505_indel_mut_matrix)
 
 # Iterative exposures - nnls
 msk505_iterative_exposures_sbs <- iterative_nnls(cosmic_signature_names[, bladder_tissue_sbs], msk505_sbs_mut_matrix, max_signatures = 5)
@@ -32,8 +32,8 @@ for (sample_idx in all_samples_msk505) {
     sample_idx = sample_idx, 
     sbs5_cosine_similarity_matrix = cos_sim_msk_sbs5,
     id8_cosine_similarity_matrix = cos_sim_msk_id8,
-    sbs_likelihood_matrix = msk505_sbs_likelihood$likelihoods,
-    indel_likelihood_matrix = msk505_indel_likelihood$likelihoods,
+    sbs_likelihood_matrix = msk505_sbs_likelihood$posteriors,
+    indel_likelihood_matrix = msk505_indel_likelihood$posteriors,
     sbs_exposures = msk505_iterative_exposures_sbs$exposures,
     id_exposures = msk505_iterative_exposures_indel$exposures,
     likelihood_ratio_vector_sbs = nnls_likelihood_ratio_sbs_msk505,
