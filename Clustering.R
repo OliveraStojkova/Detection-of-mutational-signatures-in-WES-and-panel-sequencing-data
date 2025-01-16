@@ -1,4 +1,8 @@
-# Clustering - separate for SBS and INDEL
+# Clustering SBS and INDEL samples separately based on their signature composition
+# Determine how ERCC2-MUT samples cluster (in the same vs. different clusters)
+# The goal is to get a normalized average mutational spectrum for each cluster that can be used as probability distribution in likelihood calculation
+
+# Get the contribution matrices
 sbs_contr_mat <-nnls_fitting_2$fit_res$contribution 
 indel_contr_mat <- nnls_fitting_indel_2$fit_res$contribution
 
