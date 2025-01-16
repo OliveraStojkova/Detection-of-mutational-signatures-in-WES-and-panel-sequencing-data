@@ -9,6 +9,7 @@ library(Biostrings)
 library(biomaRt)
 library(proxy)
 library(rtracklayer)
+library(nnls)
 
 # Download data from TCGA
 query <- GDCquery(
