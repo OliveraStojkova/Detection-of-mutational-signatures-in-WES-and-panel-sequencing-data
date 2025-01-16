@@ -1,7 +1,7 @@
 # Pseudocount, because fit_to_signatures gives error otherwise
 indel <- indels_count+0.001 
 
-# Remove the samples from the mutational count matrix
+# Remove POLE and MSI samples from the mutational count matrix
 is_pole_msi_indel <- colnames(indel) %in% pole_msi_samples
 indel <- indel[, !is_pole_msi_indel] # 348 samples remaining
 indels_count <- indels_count[, !is_pole_msi_indel]
