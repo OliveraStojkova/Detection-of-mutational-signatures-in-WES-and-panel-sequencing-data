@@ -1,3 +1,9 @@
+# Simulate 250 ERCC2-MUT and 250 ERCC2-WT samples, based on the distribution of total number of mutations per sample 
+# in the WES samples (for the respective groups), excluding the extreme low and high values.
+# Each samples should have both SBS and INDEL mutations
+# Restrict the samples so that they only capture the genetic regions that are captured with the MSK-IMPACT505 panel sequencing
+# Compare the distribution of total mutation count per sample of the simulated samples and MSK-IMPACT505 
+
 # Load panel sequencing data and extract the gene list
 msk505 <- readLines("GENIE_synapse_16.1_all/data_gene_panel_MSK-IMPACT505.txt")
 gene_list_msk505 <- msk505[3]
