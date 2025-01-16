@@ -24,7 +24,7 @@ plot(hc_sbs, labels = FALSE, main = "Hierarchical Clustering Dendrogram")
 wcss_sbs <- sapply(1:10, function(k) {
   cluster_assignments <- cutree(hc_sbs, k = k) # Cluster assignment
   sum(sapply(unique(cluster_assignments), function(cluster) {
-    cluster_points <- clustering_data[cluster_assignments == cluster, , drop = FALSE]
+    cluster_points <- transposed_sbs_matrix[cluster_assignments == cluster, , drop = FALSE]
     # Handle single-row clusters
     cluster_center <- if (nrow(cluster_points) > 1) {
       colMeans(cluster_points)
@@ -111,7 +111,7 @@ plot(hc_indel, labels = FALSE, main = "Hierarchical Clustering Dendrogram")
 wcss_indel <- sapply(1:10, function(k) {
   cluster_assignments <- cutree(hc_indel, k = k) # Cluster assignment
   sum(sapply(unique(cluster_assignments), function(cluster) {
-    cluster_points <- clustering_data[cluster_assignments == cluster, , drop = FALSE]
+    cluster_points <- transposed_indel_matrix[cluster_assignments == cluster, , drop = FALSE]
     # Handle single-row clusters
     cluster_center <- if (nrow(cluster_points) > 1) {
       colMeans(cluster_points)
